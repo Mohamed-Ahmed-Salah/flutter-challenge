@@ -28,7 +28,7 @@ class TitleTexts extends StatelessWidget {
         child: controller.currentPage == PageState.letsGetStarted
             ? SizedBox()
             : SequentialTextSwitcher(
-                duration: SizeConstants.durationSmall,
+                duration: Duration(milliseconds: 350),
                 // text:
                 //     titles[controller.currentIndex %
                 //         titles.length],

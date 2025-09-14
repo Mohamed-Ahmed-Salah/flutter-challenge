@@ -73,6 +73,10 @@ class SelectableCard extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTap: onTap,
+        behavior: HitTestBehavior.translucent,
+        onTapDown: (_) {
+          // This ensures taps on overlapping cards are captured
+        },
         child: AnimatedContainer(
           width: mediaQuery.size.width * 0.8,
 

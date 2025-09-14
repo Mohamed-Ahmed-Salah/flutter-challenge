@@ -23,6 +23,8 @@ class SizeConstants {
   static const double horizontalPadding = 8;
   static const double verticalSpace = 15;
 
+
+  static const int small300MilliSecondsDuration = 300;
   static const int mainMilliSecondsDuration = 500;
   static const int mainMillisecondsSlideDuration = 700;
 

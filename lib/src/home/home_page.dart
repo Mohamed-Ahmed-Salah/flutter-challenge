@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SafeArea(
           child: Consumer<PageSataProvider>(
             builder: (context, controller, _) {
+
               return Stack(
                 children: <Widget>[
                   ///Top Section page dots indicator
@@ -52,8 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-                  ///button next and back
-                  BackNextButton(controller: controller),
+
 
                   Positioned(
                     top: 120,
@@ -65,6 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           : SizedBox(),
                     ),
                   ),
+
+
+                  ///button next and back
+                  BackNextButton(controller: controller),
                 ],
               );
             },
