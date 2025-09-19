@@ -13,7 +13,7 @@ class SliderBox extends StatelessWidget {
         .of(context)
         .size;
     return Container(
-      height: mediaQuery.height * 0.17,
+      height: mediaQuery.height * 0.2,
       padding: EdgeInsets.symmetric(
         horizontal: SizeConstants.innerContainerPadding,
         vertical: SizeConstants.innerContainerPadding,
