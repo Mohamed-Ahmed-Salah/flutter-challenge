@@ -21,6 +21,19 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Challenge',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          chipTheme: ChipThemeData(
+            padding: EdgeInsets.symmetric(horizontal:  SizeConstants.smallInnerPadding,
+            vertical: SizeConstants.meduimInnerPadding
+            ),
+            showCheckmark: false,
+            selectedColor: Colours.whiteColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                SizeConstants.fullBorderRadius,
+              ),
+            ),
+            shadowColor: Colours.primaryColor,
+          ),
           brightness: Brightness.light,
           progressIndicatorTheme: ProgressIndicatorThemeData(
             color: Colours.primaryColor,

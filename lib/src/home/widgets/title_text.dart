@@ -7,7 +7,7 @@ import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
 import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
 import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
-import 'package:flutter_challenge/src/home/widgets/page1.dart';
+import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:provider/provider.dart';
 
 class TitleTexts extends StatelessWidget {

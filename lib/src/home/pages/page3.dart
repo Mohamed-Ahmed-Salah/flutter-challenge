@@ -10,7 +10,8 @@ import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
 import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
 import 'package:flutter_challenge/src/home/widgets/next_back_button.dart';
-import 'package:flutter_challenge/src/home/widgets/page1.dart';
+import 'package:flutter_challenge/src/home/pages/page1.dart';
+import 'package:flutter_challenge/src/home/widgets/page_sizer.dart';
 import 'package:flutter_challenge/src/home/widgets/title_text.dart';
 import 'package:flutter_challenge/src/home/widgets/top_dot_indicator_row.dart';
 import 'package:provider/provider.dart';
@@ -166,10 +167,7 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
     final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context);
 
-    return Container(
-      alignment: Alignment.topCenter,
-      height: mediaQuery.size.height * 0.8,
-      width: mediaQuery.size.width,
+    return PageSize(
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTapDown: (TapDownDetails details) {

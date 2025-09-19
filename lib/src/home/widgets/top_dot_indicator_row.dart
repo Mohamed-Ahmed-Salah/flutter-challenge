@@ -8,7 +8,7 @@ import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
 import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
 import 'package:flutter_challenge/src/home/widgets/next_back_button.dart';
-import 'package:flutter_challenge/src/home/widgets/page1.dart';
+import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:flutter_challenge/src/home/widgets/title_text.dart';
 import 'package:provider/provider.dart';
 class TopDotIndicatorRow extends StatelessWidget {

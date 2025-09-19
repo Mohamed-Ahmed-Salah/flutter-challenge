@@ -6,11 +6,14 @@ import 'package:flutter_challenge/config/size_const.dart';
 import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
 import 'package:flutter_challenge/src/home/pages/page2.dart';
 import 'package:flutter_challenge/src/home/pages/page3.dart';
+import 'package:flutter_challenge/src/home/pages/page4.dart';
+import 'package:flutter_challenge/src/home/pages/page5.dart';
+import 'package:flutter_challenge/src/home/pages/page6.dart';
 import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
 import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
 import 'package:flutter_challenge/src/home/widgets/next_back_button.dart';
-import 'package:flutter_challenge/src/home/widgets/page1.dart';
+import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:flutter_challenge/src/home/widgets/title_text.dart';
 import 'package:flutter_challenge/src/home/widgets/top_dot_indicator_row.dart';
 import 'package:provider/provider.dart';
@@ -35,13 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SafeArea(
           child: Consumer<PageSataProvider>(
             builder: (context, controller, _) {
-
               return Stack(
                 children: <Widget>[
                   ///Top Section page dots indicator
                   TopDotIndicatorRow(controller: controller),
+
                   ///title for each page
                   TitleTexts(controller: controller),
+
                   ///First Page Welcome Page
                   CustomAnimatedSwitcher.withSize(
                     duration: SizeConstants.duration,
@@ -51,9 +55,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         : SizedBox(),
                   ),
 
-
-
-
+                  /// page 3
+                  Positioned(
+                    top: 120,
+                    child: CustomAnimatedSwitcher.withSize(
+                      duration: SizeConstants.duration,
+                      curve: SizeConstants.mainCurve,
+                      child: controller.currentIndex == 2
+                          ? Page3()
+                          : SizedBox(),
+                    ),
+                  ),
 
                   Positioned(
                     top: 120,
@@ -65,7 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           : SizedBox(),
                     ),
                   ),
-
 
                   ///button next and back
                   BackNextButton(controller: controller),
@@ -83,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return Page2();
       case 1:
-        return Page3();
+        return SizedBox.shrink();
       case 2:
         return Page4();
       case 3:
@@ -93,37 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
       case 5:
         return Page7();
       default:
-        return Page1();
+        return SizedBox.shrink();
     }
-  }
-}
-
-
-
-class Page4 extends StatelessWidget {
-  const Page4({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text("page 5");
-  }
-}
-
-class Page5 extends StatelessWidget {
-  const Page5({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text("page 5");
-  }
-}
-
-class Page6 extends StatelessWidget {
-  const Page6({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text("page 6");
   }
 }
 

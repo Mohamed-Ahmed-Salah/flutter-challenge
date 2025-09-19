@@ -17,11 +17,13 @@ class SizeConstants {
 
   //used inside conatiners
   static const double smallInnerPadding = 8;
+  static const double meduimInnerPadding = 12;
   static const double innerContainerPadding = 16;
   static const double superBigInnerContainerHorizontalPadding = 40;
 
   static const double horizontalPadding = 8;
   static const double verticalSpace = 15;
+  static const double meduimVerticalSpace = 12;
 
 
   static const int small300MilliSecondsDuration = 300;
