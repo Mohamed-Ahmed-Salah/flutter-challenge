@@ -16,13 +16,12 @@ class DotsIndicator extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: List.generate(
-              6,
+              5,
                   (index) => AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 margin: EdgeInsets.symmetric(horizontal: 4),
                 height: 8,
-                // width: 6.w,
-                width: 30,
+                width: 35,
                 decoration: BoxDecoration(
                   color: index <= controller.currentIndex-1
                       ? Theme.of(context).primaryColor
