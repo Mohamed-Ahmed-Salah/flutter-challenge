@@ -11,6 +11,7 @@ import 'package:flutter_challenge/src/home/widgets/next_back_button.dart';
 import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:flutter_challenge/src/home/widgets/title_text.dart';
 import 'package:provider/provider.dart';
+
 class TopDotIndicatorRow extends StatelessWidget {
   final PageSataProvider controller;
 
@@ -24,28 +25,31 @@ class TopDotIndicatorRow extends StatelessWidget {
         end: const Offset(0.0, 0.0),
         duration: SizeConstants.duration,
         curve: Curves.easeOutCubic,
-        child: controller.currentPage == PageState.letsGetStarted
+        child:
+            controller.currentPage == PageState.letsGetStarted ||
+                (controller.currentPage != PageState.next &&
+                    controller.currentPage != PageState.finish)
             ? SizedBox()
             : Padding(
-          padding: const EdgeInsets.all(
-            SizeConstants.innerContainerPadding,
-          ),
-          child: SizedBox(
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () =>
-                      context.read<PageSataProvider>().back(),
-                  icon: Icon(Icons.close),
+                padding: const EdgeInsets.all(
+                  SizeConstants.innerContainerPadding,
                 ),
-                Expanded(child: DotsIndicator()),
-                Icon(Icons.more_horiz),
-              ],
-            ),
-          ),
-        ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () =>
+                            context.read<PageSataProvider>().back(),
+                        icon: Icon(Icons.close),
+                      ),
+                      Expanded(child: DotsIndicator()),
+                      Icon(Icons.more_horiz),
+                    ],
+                  ),
+                ),
+              ),
       ),
     );
   }

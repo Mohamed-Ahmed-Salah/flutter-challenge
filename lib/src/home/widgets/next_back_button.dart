@@ -14,8 +14,13 @@ import 'package:provider/provider.dart';
 
 class BackNextButton extends StatelessWidget {
   final PageSataProvider controller;
+  final Animation<int> counter;
 
-  const BackNextButton({super.key, required this.controller});
+  const BackNextButton({
+    super.key,
+    required this.controller,
+    required this.counter,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +33,11 @@ class BackNextButton extends StatelessWidget {
           bottom: 20,
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final showBackButton =
-                  controller.currentPage != PageState.letsGetStarted &&
-                  controller.currentPage != PageState.seeResult &&
-                  controller.currentPage != PageState.analysing &&
-                  controller.currentIndex != 5;
+              final showBackButton = true;
+              // controller.currentPage != PageState.letsGetStarted &&
+              //     controller.currentPage != PageState.seeResult &&
+              //     controller.currentPage != PageState.analysing &&
+              //     controller.currentIndex != 5;
               final availableWidth = constraints.maxWidth;
               // final showBackButton =
               //     controller.currentPage != PageState.letsGetStarted;
@@ -115,14 +120,48 @@ class BackNextButton extends StatelessWidget {
                             ),
                           ),
                           child: Center(
-                            child: CustomAnimatedSwitcher(
-                              child: Text(
-                                controller.currentPage.text,
-                                key: ValueKey('${controller.currentPage}_text'),
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  color: Colours.whiteColor,
-                                ),
-                              ),
+                            child: AnimatedBuilder(
+                              animation: counter,
+                              builder: (context, child) {
+                                return CustomAnimatedSwitcher(
+                                  child: Text(
+                                    controller.currentPage ==
+                                            PageState.analysing
+                                        ? "${controller.currentPage.text} ${counter.value}"
+                                        : controller.currentPage.text,
+                                    key: ValueKey(
+                                      '${controller.currentPage}_text',
+                                    ),
+                                    style: theme.textTheme.titleMedium
+                                        ?.copyWith(color: Colours.whiteColor),
+                                  ),
+                                  // AnimatedBuilder(
+                                  //   animation: counter,
+                                  //   builder: (context, child) {
+                                  //     return Text(
+                                  //       controller.currentPage ==
+                                  //               PageState.analysing
+                                  //           ? "${controller.currentPage.text} ${counter.value}"
+                                  //           : controller.currentPage.text,
+                                  //       key: ValueKey(
+                                  //         '${controller.currentPage}_text',
+                                  //       ),
+                                  //       style: theme.textTheme.titleMedium
+                                  //           ?.copyWith(color: Colours.whiteColor),
+                                  //     );
+                                  //
+                                  //     // return Text(
+                                  //     //   "${_counter.value}",
+                                  //     //   style: const TextStyle(
+                                  //     //     fontSize: 60,
+                                  //     //     fontWeight: FontWeight.bold,
+                                  //     //     color: Colors.white,
+                                  //     //   ),
+                                  //     // );
+                                  //   },
+                                  // ),
+                                );
+                              },
                             ),
                           ),
                         ),

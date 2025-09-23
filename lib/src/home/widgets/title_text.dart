@@ -25,7 +25,10 @@ class TitleTexts extends StatelessWidget {
         duration: SizeConstants.duration,
         curve: Curves.easeInOut,
 
-        child: controller.currentPage == PageState.letsGetStarted
+        child:
+            controller.currentPage == PageState.letsGetStarted ||
+                (controller.currentPage != PageState.next &&
+                    controller.currentPage != PageState.finish)
             ? SizedBox()
             : SequentialTextSwitcher(
                 duration: Duration(milliseconds: 350),
@@ -155,14 +158,17 @@ class _SequentialTextSwitcherState extends State<SequentialTextSwitcher>
                       ),
                     ),
                     child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: Offset.zero,
-                        end: const Offset(0, -0.5),
-                      ).animate( CurvedAnimation(
-                        parent: _outController,
-                        curve: SizeConstants
-                            .mainCurve, // <-- Add your curve here
-                      ),),
+                      position:
+                          Tween<Offset>(
+                            begin: Offset.zero,
+                            end: const Offset(0, -0.5),
+                          ).animate(
+                            CurvedAnimation(
+                              parent: _outController,
+                              curve: SizeConstants
+                                  .mainCurve, // <-- Add your curve here
+                            ),
+                          ),
                       child: Text(currentText, style: textTheme.titleLarge),
                     ),
                   ),

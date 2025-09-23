@@ -1,4 +1,5 @@
 import 'package:flutter_challenge/config/enums.dart';
+import 'package:flutter_challenge/config/size_const.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 
@@ -17,13 +18,14 @@ class PageSataProvider extends ChangeNotifier {
     if (index == 5) return PageState.finish;
     if (index == 6) return PageState.analysing;
     if (index == 7) return PageState.seeResult;
+    if (index == 8) return PageState.buyPlan;
     return PageState.letsGetStarted; // fallback
   }
 
   // Update index and page
   void next() {
     int index = _currentIndex + 1;
-    if (index < 0 || index > 7) return; // optional boundary check
+    if (index < 0 || index > 8) return; // optional boundary check
     _currentIndex = index;
     _currentPage = _mapIndexToPage(index);
     notifyListeners();
@@ -37,4 +39,10 @@ class PageSataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void navToFinishPage() async {
+    await Future.delayed(SizeConstants.delay);
+    if (currentPage == PageState.analysing) {
+      next();
+    }
+  }
 }
