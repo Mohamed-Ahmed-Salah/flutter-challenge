@@ -56,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   _counterListener() {
     if (_counterController.isCompleted) {
+
       _pageStateProvider.navToFinishPage();
     }
   }
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   void _startCounter(int index) async {
     await Future.delayed(Duration(seconds: 1)).then((_) {
-      if (index == 5 && !_counterController.isAnimating) {
+      if (index == 6 && !_counterController.isAnimating) {
         _counterController.forward(from: 0); // start animation from 0
       }
     });
