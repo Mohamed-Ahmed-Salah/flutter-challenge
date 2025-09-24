@@ -244,7 +244,7 @@ class _Page8State extends State<Page8> {
       child: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.55,
             child: plans.isEmpty
                 ? Center(
                     child: Column(
@@ -380,14 +380,6 @@ class InsurancePlanCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(SizeConstants.outerBorderRadius),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.15),
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -707,7 +699,9 @@ class InsurancePlanCard extends StatelessWidget {
               children: [
                 Icon(
                   enabled ? Icons.check : Icons.close,
-                  color: enabled ? Colors.green[600] : Colors.grey[400],
+                  color: enabled
+                      ? Theme.of(context).primaryColor
+                      : Colors.grey[400],
                   size: 16,
                 ),
                 Text(

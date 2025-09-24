@@ -33,8 +33,8 @@ class BackNextButton extends StatelessWidget {
           bottom: 20,
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final showBackButton =
-              true;
+              final showBackButton = controller.currentPage == PageState.next;
+              // true;
               // controller.currentPage != PageState.letsGetStarted &&
               //     controller.currentPage != PageState.seeResult &&
               //     controller.currentPage != PageState.analysing &&
