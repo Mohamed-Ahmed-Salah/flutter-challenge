@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_challenge/config/colours.dart';
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/size_const.dart';
 import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
-import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
-import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
-import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:provider/provider.dart';
 
 class TitleTexts extends StatelessWidget {

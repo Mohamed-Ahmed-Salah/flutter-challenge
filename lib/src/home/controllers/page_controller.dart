@@ -1,6 +1,5 @@
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/size_const.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 
 class PageSataProvider extends ChangeNotifier {

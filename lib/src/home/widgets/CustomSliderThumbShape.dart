@@ -1,11 +1,6 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/config/colours.dart';
-import 'package:flutter_challenge/config/size_const.dart';
-import 'package:flutter_challenge/src/home/widgets/CustomSliderThumbShape.dart';
-import 'package:flutter_challenge/src/home/widgets/full_width_slider_shape.dart';
-import 'package:flutter_challenge/src/home/widgets/page_sizer.dart';
 
 class CustomThumbShape extends SliderComponentShape {
   final IconData icon;

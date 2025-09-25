@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/config/size_const.dart';
-import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
-import 'package:provider/provider.dart';
 import "package:flutter_animate/flutter_animate.dart";
 
 class Page1 extends StatelessWidget {

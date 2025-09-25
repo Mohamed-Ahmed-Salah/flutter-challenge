@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_challenge/config/size_const.dart';
-import 'package:flutter_challenge/src/home/home_page.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({super.key});

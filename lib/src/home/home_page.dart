@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:flutter_challenge/config/colours.dart';
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/media.dart';
 import 'package:flutter_challenge/config/size_const.dart';
@@ -16,7 +15,6 @@ import 'package:flutter_challenge/src/home/pages/page5.dart';
 import 'package:flutter_challenge/src/home/pages/page6.dart';
 import 'package:flutter_challenge/src/home/widgets/backgroudn.dart';
 import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
-import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
 import 'package:flutter_challenge/src/home/widgets/next_back_button.dart';
 import 'package:flutter_challenge/src/home/pages/page1.dart';
 import 'package:flutter_challenge/src/home/widgets/page_sizer.dart';
@@ -169,7 +167,7 @@ class Page7 extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return PageSize(
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         // color: Colors.blue,
         child: Column(
@@ -244,7 +242,7 @@ class _Page8State extends State<Page8> {
     return PageSize(
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.55,
             child: plans.isEmpty
                 ? Center(
@@ -772,7 +770,7 @@ class CustomCircularProgress extends StatefulWidget {
   final Duration animationDuration;
 
   const CustomCircularProgress({
-    Key? key,
+    super.key,
     required this.percentage,
     this.radius = 60,
     this.strokeWidth = 8,
@@ -780,7 +778,7 @@ class CustomCircularProgress extends StatefulWidget {
     this.backgroundColor = const Color(0xFFE8E8E8),
     this.center,
     this.animationDuration = const Duration(milliseconds: 1500),
-  }) : super(key: key);
+  });
 
   @override
   _CustomCircularProgressState createState() => _CustomCircularProgressState();
@@ -898,7 +896,7 @@ class MetricsWidget extends StatelessWidget {
   final double radius;
 
   const MetricsWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.percentage,
@@ -906,7 +904,7 @@ class MetricsWidget extends StatelessWidget {
     this.primaryGradient = const [Colors.blue, Colors.lightBlueAccent],
     this.backgroundColor = const Color(0xFFE8E8E8),
     this.radius = 60,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

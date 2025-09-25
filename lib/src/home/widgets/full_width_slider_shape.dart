@@ -1,9 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/config/colours.dart';
-import 'package:flutter_challenge/config/size_const.dart';
-import 'package:flutter_challenge/src/home/widgets/page_sizer.dart';
 class FullWidthTrackShape extends RoundedRectSliderTrackShape {
   @override
   Rect getPreferredRect({
