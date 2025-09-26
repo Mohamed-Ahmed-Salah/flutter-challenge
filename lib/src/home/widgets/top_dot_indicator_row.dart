@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/size_const.dart';
 import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
-import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
+import 'package:flutter_challenge/src/home/widgets/custom_animated_switcher.dart';
 import 'package:flutter_challenge/src/home/widgets/dots_indicator.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +22,8 @@ class TopDotIndicatorRow extends StatelessWidget {
         child:
             controller.currentPage == PageState.letsGetStarted ||
                 (controller.currentPage != PageState.next &&
-                    controller.currentPage != PageState.finish)
+                    controller.currentPage != PageState.finish &&
+                    controller.currentPage != PageState.buyPlan)
             ? SizedBox()
             : Padding(
                 padding: const EdgeInsets.all(
@@ -38,8 +39,20 @@ class TopDotIndicatorRow extends StatelessWidget {
                             context.read<PageSataProvider>().back(),
                         icon: Icon(Icons.close),
                       ),
-                      Expanded(child: DotsIndicator()),
-                      Icon(Icons.more_horiz),
+
+                      controller.currentPage != PageState.buyPlan
+                          ? Expanded(child: DotsIndicator())
+                          : Text(
+                              "Your best matches",
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.w600),
+                            ),
+
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.more_horiz),
+                      ),
                     ],
                   ),
                 ),

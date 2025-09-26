@@ -202,17 +202,3 @@ class _Page4State extends State<Page4> with SingleTickerProviderStateMixin {
     );
   }
 }
-
-// "🩺 Diabetes",
-// "🩸 Blood pressure",
-// "🔪 Any surgery",
-// "🫀 Organ Surgery",
-// "🧬 Cancer",
-// "💊 Substance",
-// "🦷 Thyroid",
-// "🫁 Asthma",
-// "🟢 Other desire",
-// "💄 Cosmetic",
-// "🍼 Reproductive",
-// "🚗 Accident",
-// "🏥 Other",

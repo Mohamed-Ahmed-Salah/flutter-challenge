@@ -40,8 +40,14 @@ class PageSataProvider extends ChangeNotifier {
 
   void navToFinishPage() async {
     await Future.delayed(SizeConstants.delay);
-    if (currentPage == PageState.analysing) {
+    if (_currentPage == PageState.analysing) {
       next();
     }
+  }
+
+  void reset() {
+    _currentPage = PageState.letsGetStarted;
+    _currentIndex = 0;
+    notifyListeners();
   }
 }

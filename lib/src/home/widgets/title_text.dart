@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/size_const.dart';
 import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
-import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
+import 'package:flutter_challenge/src/home/widgets/custom_animated_switcher.dart';
 import 'package:provider/provider.dart';
 
 class TitleTexts extends StatelessWidget {
@@ -27,9 +27,6 @@ class TitleTexts extends StatelessWidget {
             ? SizedBox()
             : SequentialTextSwitcher(
                 duration: Duration(milliseconds: 350),
-                // text:
-                //     titles[controller.currentIndex %
-                //         titles.length],
               ),
       ),
     );

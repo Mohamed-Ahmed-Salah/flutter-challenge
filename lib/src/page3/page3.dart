@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_challenge/config/colours.dart';
 import 'package:flutter_challenge/config/size_const.dart';
-import 'package:flutter_challenge/src/home/pages/page2.dart';
 import 'package:flutter_challenge/src/home/widgets/page_sizer.dart';
+import 'package:flutter_challenge/src/home/widgets/selectable_cards.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({super.key});
@@ -39,7 +39,7 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
   late Animation<Offset> _slideAnimation;
   late Animation<double> _scaleAnimation;
 
-  final List<int> numbers = List.generate(30, (i) => i + 1);
+  final List<int> numbers = List.generate(43, (i) => i + 18);
 
   // Global keys to track widget positions
   final GlobalKey _wheelKey = GlobalKey();
@@ -88,7 +88,6 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
     setState(() {
       _showFocusedAtTop = true;
       hasChangedInitialValue = true;
-
     });
     _focusAnimationController.forward();
 
@@ -149,8 +148,6 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
     return false;
   }
 
-  double _dragAccumulator = 0.0;
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -191,10 +188,6 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
             }
           }
 
-          // if tap inside wheel and NOT a card, prepare for dragging
-          if (isInWheel && !isInCards) {
-            // setState(() => _isDragging = true);
-          }
         },
         onVerticalDragStart: (details) {
           print("onVerticalDragStart");
@@ -202,45 +195,8 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
           final isInWheel = _isPointInWheelArea(pos);
           final isInCards = _isPointInSelectableCards(pos);
 
-          if (isInWheel && !isInCards) {
-            // setState(() => _isDragging = true);
-            _dragAccumulator = 0.0;
-          } else {
-            // we tapped on card area -> don't start wheel dragging
-            // setState(() => _isDragging = false);
-          }
-          print("ende onVerticalDragStart");
         },
-        onVerticalDragUpdate: (DragUpdateDetails details) {
-          if (!_isDragging) return;
 
-          // _dragAccumulator += details.delta.dy;
-
-          // convert pixels to item steps (itemExtent = 60)
-          // const double itemExtent = 60.0;
-          // int step = (_dragAccumulator / itemExtent).truncate();
-
-          // if (step != 0) {
-          //   final newIndex =
-          //   (_selectedAgeIndex - step).clamp(0, numbers.length - 1);
-          //   // Use jumpToItem for immediate reaction, animateToItem for smoothness.
-          //   _scrollController.jumpToItem(newIndex);
-          //   setState(() {
-          //     _selectedAgeIndex = newIndex;
-          //   });
-          //   _dragAccumulator -= step * itemExtent;
-          // }
-        },
-        onVerticalDragEnd: (details) {
-          // if (!_isDragging) return;
-          // setState(() => _isDragging = false);
-          // center to nearest item smoothly
-          // _scrollController.animateToItem(
-          //   _selectedAgeIndex,
-          //   duration: Duration(milliseconds: 200),
-          //   curve: Curves.easeOut,
-          // );
-        },
         child: Stack(
           children: [
             // Wheel Section with conditional AbsorbPointer
@@ -359,7 +315,6 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
                   child: !hasChangedInitialValue
                       ? SizedBox()
                       : AnimatedOpacity(
-                          // opacity: 1,
                           opacity:
                               (_isScrolling && hasChangedInitialValue) ||
                                   !hasChangedInitialValue

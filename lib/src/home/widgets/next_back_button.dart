@@ -4,7 +4,8 @@ import 'package:flutter_challenge/config/colours.dart';
 import 'package:flutter_challenge/config/enums.dart';
 import 'package:flutter_challenge/config/size_const.dart';
 import 'package:flutter_challenge/src/home/controllers/page_controller.dart';
-import 'package:flutter_challenge/src/home/widgets/custom_animated_sqitcher.dart';
+import 'package:flutter_challenge/src/home/home_page.dart';
+import 'package:flutter_challenge/src/home/widgets/custom_animated_switcher.dart';
 
 class BackNextButton extends StatelessWidget {
   final PageSataProvider controller;
@@ -28,14 +29,8 @@ class BackNextButton extends StatelessWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final showBackButton = controller.currentPage == PageState.next;
-              // true;
-              // controller.currentPage != PageState.letsGetStarted &&
-              //     controller.currentPage != PageState.seeResult &&
-              //     controller.currentPage != PageState.analysing &&
-              //     controller.currentIndex != 5;
+
               final availableWidth = constraints.maxWidth;
-              // final showBackButton =
-              //     controller.currentPage != PageState.letsGetStarted;
 
               // Calculate dynamic widths based on available space
               final buttonSpacing = SizeConstants.horizontalPadding;
@@ -101,7 +96,19 @@ class BackNextButton extends StatelessWidget {
                       width: nextButtonWidth * scaleFactor,
                       height: containerButtonHeight,
                       child: InkWell(
-                        onTap: () => controller.next(),
+                        onTap: () {
+                          if (controller.currentPage == PageState.buyPlan) {
+                            controller.reset();
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) =>
+                                    const MyHomePage(),
+                              ),
+                            );
+                          } else {
+                            controller.next();
+                          }
+                        },
                         borderRadius: BorderRadius.circular(
                           SizeConstants.fullBorderRadius,
                         ),
