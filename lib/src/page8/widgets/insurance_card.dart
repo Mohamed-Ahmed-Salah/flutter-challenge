@@ -161,7 +161,7 @@ class InsurancePlanCard extends StatelessWidget {
 }
 
 class _DetailsButton extends StatelessWidget {
-  const _DetailsButton({super.key});
+  const _DetailsButton();
 
   @override
   Widget build(BuildContext context) {
